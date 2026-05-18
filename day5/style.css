@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+nav{
+    background-color: #222;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover{
+    color: orange;
+}
+.search-box{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.search-box input{
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+.search-box button{
+    padding: 8px 14px;
+    border: none;
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.search-box button:hover{
+    background-color: darkorange;
+}
+.bgImg{
+    background-image: url("img1.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.par1{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.5);
+    padding: 15px 25px;
+    border-radius: 10px;
+}
+.note{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+}
+
+.wrapper{
+    width: 90%;
+    margin: 40px auto;
+}
+
+.div1{
+    text-align: center;
+}
+
+/* Images */
+.div1 img{
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+section.note{
+    margin-top: 30px;
+    text-align: center;
+}
+section.note h1{
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+section.note p{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.note-button{
+    padding: 12px 20px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.note-button:hover{
+    background-color: darkorange;
+}
+.content{
+    margin-top: 50px;
+    text-align: center;
+    padding: 20px;
+}
+.content h2{
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+.content h2 span{
+    color: orange;
+}
+.content-text{
+    max-width: 800px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.8;
+}
+header{
+    background-color: #444;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+header h1{
+    margin-bottom: 15px;
+}
+.contact-container{
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.contact-container h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form-group{
+    margin-bottom: 20px;
+}
+.form-group label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.form-group input,
+.form-group textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+.form-group textarea{
+    height: 120px;
+    resize: none;
+}
+.form-group button{
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background-color: orange;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.form-group button:hover{
+    background-color: darkorange;
+}
+@media(max-width: 768px){
+
+    nav{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .par1{
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .content h2{
+        font-size: 24px;
+    }
+}
