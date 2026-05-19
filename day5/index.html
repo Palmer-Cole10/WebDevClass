@@ -1,39 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-   <nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="services.html">Services</a></li>
-    </ul>
-   </nav> 
-    <!-- Designing the background image and text. -->
-    <div class="bgImg">
-        <p class="par1">Welcome to my website.</p>
-    </div> 
-<!--    Picture and text section -->
-    <p class="note">Picture Section</p>
-    <div class="wrapper">
-        <div class="div1">
-            <img src="sorry ma.jpg" alt="" class="sorry ma">
-     <section class="note">
-        <h1>Dramatically Engage</h1>
-        <p>
-            Objectively innovate empowered manufactured products whereas parallel platforms
-        </p>
-        <button class="note-button">Engage Now</button>
-     </section>
-      <section class="content">
-        <h2>Superior Collaboration <span>Visualize Quality</span></h2>
+    <title>Homepage</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f5f7;
+            color: #202124;
+        }
 
-        <p class="content-text">Proactively onvisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea sharing. Hostilically pontificate installed base portals after maintainable products.</p>
-      </section>
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 32px;
+            background-color: #181818;
+            color: #fff;
+        }
+
+        .nav-left,
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .navbar-logo img {
+            height: 36px;
+            display: block;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 24px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav input[type="text"] {
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            width: 220px;
+        }
+
+        .nav button {
+            padding: 11px 18px;
+            border: none;
+            border-radius: 6px;
+            background-color: #fff;
+            color: #181818;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .hero {
+            background-color: #8dc63f;
+            color: #f4f6f7;
+            text-align: center;
+            padding: 96px 24px 64px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            max-width: 780px;
+            margin: 0 auto 28px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .button-primary {
+            border: none;
+            background-color: #1b6de0;
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .section-intro {
+            padding: 52px 24px 20px;
+            text-align: center;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        .section-intro h2 {
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            margin-bottom: 12px;
+        }
+
+        .section-intro h2 span {
+            color: #5a5a5a;
+            font-weight: 400;
+            margin-left: 10px;
+            font-size: 1.1rem;
+        }
+
+        .section-intro p {
+            max-width: 760px;
+            margin: 0 auto;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px 24px 60px;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #eceff1;
+            border-radius: 16px;
+            padding: 26px 22px;
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .card-image {
+            background-color: #d7d8da;
+            border-radius: 14px;
+            height: 180px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 22px;
+            color: #747474;
+            font-size: 0.95rem;
+        }
+
+        .card h3 {
+            color: #1b6de0;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+        }
+
+        .card p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 960px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 16px;
+            }
+
+            .nav-left,
+            .nav-right {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-left">
+            <a href="/" class="navbar-logo">
+                <img src="your-logo.jpg" alt="Company Logo">
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="services.html">Services</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <input type="text" name="search" placeholder="Search">
+            <button type="button">SEARCH</button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>Dramatically Engage</h1>
+            <p>Objectively innovate empowered manufactured products whereas parallel platforms.</p>
+            <button class="button-primary">Engage Now</button>
+        </section>
+
+        <section class="section-intro">
+            <h2>Superior Collaboration <span>Visualize Quality</span></h2>
+            <p>Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize
+                quality intellectual capital without superior collaboration and idea sharing. Hostilely pontificate
+                installed base portals after maintainable products.</p>
+        </section>
+
+        <section class="cards">
+            <div class="card">
+                <div class="card-image">700 x 300</div>
+                <h3>Efficiently Unleash</h3>
+                <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate
+                    B2C users after installed base.</p>
+            </div>
+            <div class="card">
+                <div class="card-image">700 x 300</div>
+                <h3>Completely Synergize</h3>
+                <p>Dramatically maintain clicks-and-mortar solutions without functional solutions. Efficiently unleash
+                    cross-media relationships.</p>
+            </div>
+            <div class="card">
+                <div class="card-image">700 x 300</div>
+                <h3>Dynamically Procrastinate</h3>
+                <p>Professionally cultivate one-to-one customer service with robust ideas. Completely synergize resource
+                    taxing relationships via premier niche markets.</p>
+            </div>
+        </section>
+    </main>
 </body>
+
 </html>
