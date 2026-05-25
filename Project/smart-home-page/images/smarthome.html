@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home</title>
+    <style>
+        
+* {
+box-sizing: border-box;
+}
+
+body {
+margin: 0;
+font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+background: #f3f4f6;
+color: #111827;
+}
+
+a {
+color: inherit;
+text-decoration: none;
+}
+
+nav {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 20px 40px;
+background: #ffffff;
+position: sticky;
+top: 0;
+z-index: 10;
+box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.brand {
+display: flex;
+align-items: center;
+gap: 10px;
+font-weight: 700;
+letter-spacing: 0.04em;
+}
+
+.brand span {
+display: inline-block;
+width: 28px;
+height: 28px;
+border-radius: 50%;
+background: #f97316;
+color: #fff;
+font-size: 0.95rem;
+text-align: center;
+line-height: 28px;
+}
+
+nav ul {
+display: flex;
+gap: 28px;
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+nav a:hover {
+color: #f97316;
+}
+
+.hero {
+position: relative;
+min-height: 680px;
+background: linear-gradient(180deg, rgba(6, 7, 12, 0.45), rgba(6, 7, 12, 0.85)), url('https://images.unsplash.com/photo-1512499617640-c2f99912a9e1?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+color: #ffffff;
+display: flex;
+align-items: center;
+}
+
+.hero::before {
+content: '';
+position: absolute;
+inset: 0;
+background: rgba(6, 7, 12, 0.25);
+}
+
+.hero-inner {
+position: relative;
+width: 100%;
+max-width: 1200px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1.1fr 0.9fr;
+align-items: center;
+gap: 40px;
+padding: 100px 40px 120px;
+}
+
+.hero-copy span {
+display: inline-block;
+text-transform: uppercase;
+letter-spacing: 0.32em;
+font-size: 0.8rem;
+opacity: 0.75;
+margin-bottom: 18px;
+}
+
+.hero-copy h1 {
+font-size: clamp(3rem, 5vw, 4.4rem);
+line-height: 0.95;
+margin: 0 0 24px;
+}
+
+.hero-copy p {
+max-width: 520px;
+font-size: 1rem;
+line-height: 1.8;
+color: rgba(255, 255, 255, 0.88);
+margin: 0 0 32px;
+}
+
+.hero-copy .button {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 16px 32px;
+border-radius: 999px;
+background: #ffffff;
+color: #111827;
+font-weight: 700;
+box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+}
+
+.hero-visual {
+display: grid;
+place-items: center;
+}
+
+.hero-visual img {
+width: 100%;
+max-width: 520px;
+border-radius: 24px;
+box-shadow: 0 40px 80px rgba(15, 23, 42, 0.3);
+}
+
+.section {
+max-width: 1200px;
+margin: 0 auto;
+padding: 60px 40px;
+}
+
+.feature {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 40px;
+align-items: center;
+background: #ffffff;
+border-radius: 32px;
+padding: 60px;
+box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+}
+
+.feature span {
+display: inline-block;
+text-transform: uppercase;
+letter-spacing: 0.3em;
+font-size: 0.8rem;
+color: #111827;
+opacity: 0.75;
+margin-bottom: 18px;
+}
+
+.feature h2 {
+margin: 0 0 22px;
+font-size: clamp(2.4rem, 3vw, 3rem);
+line-height: 1.05;
+}
+
+.feature p {
+max-width: 460px;
+color: #4b5563;
+line-height: 1.75;
+margin: 0 0 26px;
+}
+
+.feature .button-secondary {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 14px 28px;
+border-radius: 999px;
+background: #111827;
+color: #ffffff;
+font-weight: 700;
+}
+
+.feature-image {
+display: flex;
+justify-content: center;
+}
+
+.feature-image img {
+width: 100%;
+max-width: 500px;
+border-radius: 28px;
+}
+
+.grid {
+display: grid;
+gap: 24px;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+margin-top: 32px;
+}
+
+.card {
+background: #ffffff;
+border-radius: 28px;
+padding: 28px;
+box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+display: flex;
+flex-direction: column;
+gap: 18px;
+}
+
+.card h3 {
+margin: 0;
+font-size: 1.3rem;
+}
+
+.card p {
+margin: 0;
+color: #4b5563;
+line-height: 1.8;
+}
+
+.card .link {
+color: #f97316;
+font-weight: 700;
+font-size: 0.95rem;
+}
+
+.row {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 24px;
+margin-top: 24px;
+}
+
+.small-card {
+background: #ffffff;
+border-radius: 24px;
+padding: 22px;
+display: grid;
+gap: 14px;
+box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+}
+
+.small-card h4 {
+margin: 0;
+font-size: 1.05rem;
+}
+
+.small-card p {
+margin: 0;
+color: #6b7280;
+font-size: 0.95rem;
+}
+
+.callout {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 40px;
+align-items: center;
+margin: 80px 0 60px;
+}
+
+.callout-copy h2 {
+margin: 0 0 18px;
+font-size: clamp(2.2rem, 3vw, 3rem);
+}
+
+.callout-copy p {
+max-width: 520px;
+color: #4b5563;
+line-height: 1.8;
+margin: 0 0 24px;
+}
+
+.callout-copy a {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+color: #111827;
+font-weight: 700;
+}
+
+.callout-image {
+display: grid;
+place-items: center;
+}
+
+.callout-image img {
+width: 100%;
+max-width: 560px;
+border-radius: 28px;
+}
+
+.footer {
+background: #111827;
+color: #d1d5db;
+padding: 60px 40px;
+}
+
+.footer-grid {
+display: grid;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+gap: 28px;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.footer h5 {
+margin: 0 0 18px;
+color: #ffffff;
+font-size: 1rem;
+}
+
+.footer a {
+display: block;
+color: #9ca3af;
+margin-bottom: 10px;
+font-size: 0.95rem;
+}
+
+.footer a:hover {
+color: #ffffff;
+}
+
+.footer-bottom {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 50px;
+color: #9ca3af;
+font-size: 0.9rem;
+}
+
+@media (max-width: 980px) {
+
+.hero-inner,
+.feature,
+.callout {
+    grid-template-columns: 1fr;
+}
+
+nav {
+    padding: 18px 24px;
+}
+
+.section {
+    padding: 40px 24px;
+}
+
+.footer {
+    padding: 40px 24px;
+}
+
+.footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+}
+
+@media (max-width: 720px) {
+nav {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.grid,
+.row {
+    grid-template-columns: 1fr;
+}
+
+.footer-grid {
+    grid-template-columns: 1fr;
+}
+
+.hero {
+    min-height: 620px;
+}
+}
+
+    </style>
+</head>
+
+<body>
+    <nav class="main-nav">
+        <div class="nav-brand">Smart Home</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="lifestyle.html">Lifestyle</a></li>
+            <li><a href="smarthome.html" class="active">Smart Home</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="hero-banner">
+            <div class="hero-copy">
+                <p class="hero-label">3D showroom</p>
+                <h1>Virtual Experience of Smart Life</h1>
+                <a href="#tv-media" class="hero-button">More</a>
+            </div>
+        </section>
+
+        <section id="tv-media" class="product-section">
+            <div class="section-header">
+                <h2>TV & Media</h2>
+                <a href="#" class="section-button">More</a>
+            </div>
+            <div class="product-grid">
+                <article class="product-card">
+                    <h3>Xiaomi TV Q2 65</h3>
+                    <p>Smart 4K QLED television</p>
+                    <img src="section1-image.jpg" alt="Xiaomi TV Q2 65">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Xiaomi TV P1E 65</h3>
+                    <p>Ultra bright 4K smart TV</p>
+                    <img src="section2-image1.png" alt="Xiaomi TV P1E 65">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Xiaomi TV Q2 55</h3>
+                    <p>Vivid color QLED display</p>
+                    <img src="section2-image2.png" alt="Xiaomi TV Q2 55">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Mi TV Stick</h3>
+                    <p>Stream anywhere</p>
+                    <img src="section3-image1.png" alt="Mi TV Stick">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Mi Box S</h3>
+                    <p>4K HDR streaming media player</p>
+                    <img src="section3-image2.png" alt="Mi Box S">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Mi Portable Bluetooth Speaker (16W)</h3>
+                    <p>Powerful portable audio</p>
+                    <img src="section3-image3.png" alt="Mi Portable Bluetooth Speaker">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="vacuum-cleaner" class="product-section">
+            <div class="section-header">
+                <h2>Vacuum Cleaner</h2>
+                <a href="#" class="section-button">More</a>
+            </div>
+            <div class="product-grid">
+                <article class="product-card">
+                    <h3>Mi Robot Vacuum-Mop 2 Pro</h3>
+                    <p>Smart robot vacuum with mop</p>
+                    <img src="section3-image4.png" alt="Mi Robot Vacuum-Mop 2 Pro">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Xiaomi Robot Vacuum-Mop 2S</h3>
+                    <p>Advanced mapping for smart cleaning</p>
+                    <img src="section4-image1.png" alt="Xiaomi Robot Vacuum-Mop 2S">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Xiaomi Truclean W10 Ultra Wet Dry Vacuum</h3>
+                    <p>Easy cleaning for every floor</p>
+                    <img src="" alt="Xiaomi Truclean W10 Ultra Wet Dry Vacuum">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Mi Robot Vacuum-Mop 2</h3>
+                    <p>Compact smart floor cleaner</p>
+                    <img src="section4-image2.png" alt="Mi Robot Vacuum-Mop 2">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Xiaomi Vacuum Cleaner G11</h3>
+                    <p>Powerful cordless vacuum</p>
+                    <img src="section5-image1.png" alt="Xiaomi Vacuum Cleaner G11">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="environment-appliance" class="product-section">
+            <div class="section-header">
+                <h2>Environment Appliance</h2>
+                <a href="#" class="section-button">More</a>
+            </div>
+            <div class="product-grid">
+                <article class="product-card">
+                    <h3>Xiaomi Smart Humidifier 2</h3>
+                    <p>Smart humidification for comfort</p>
+                    <img src="section5-image2.png" alt="Xiaomi Smart Humidifier 2">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Xiaomi Smart Air Purifier 4 Compact</h3>
+                    <p>Cleaner air in a compact design</p>
+                    <img src="section5-image3.png" alt="Xiaomi Smart Air Purifier 4 Compact">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Xiaomi Humidifier 2 Lite</h3>
+                    <p>Balanced moisture control</p>
+                    <img src="section6-image1.png" alt="Xiaomi Humidifier 2 Lite">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Xiaomi Smart Air Purifier 4</h3>
+                    <p>Reliable air purification</p>
+                    <img src="section6-image2.png" alt="Xiaomi Smart Air Purifier 4">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Xiaomi Smart Air Purifier 4 Lite</h3>
+                    <p>Perfect for bedrooms and offices</p>
+                    <img src="section6-image3.png" alt="Xiaomi Smart Air Purifier 4 Lite">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Xiaomi Smart Tower Fan</h3>
+                    <p>Quiet and efficient air circulation</p>
+                    <img src="section7-image1.png" alt="Xiaomi Smart Tower Fan">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="kitchen-appliance" class="product-section">
+            <div class="section-header">
+                <h2>Kitchen Appliance</h2>
+                <a href="#" class="section-button">More</a>
+            </div>
+            <div class="product-grid product-grid--two">
+                <article class="product-card">
+                    <h3>Mi Smart Air Fryer 3.5L</h3>
+                    <p>Healthy cooking with one touch</p>
+                    <img src="section7-image2.png" alt="Mi Smart Air Fryer 3.5L">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Xiaomi Smart Blender</h3>
+                    <p>Powerful blender for everyday meals</p>
+                    <img src="section7-image3.png" alt="Xiaomi Smart Blender">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="illumination" class="product-section">
+            <div class="section-header">
+                <h2>Illumination</h2>
+                <a href="#" class="section-button">More</a>
+            </div>
+            <div class="product-grid">
+                <article class="product-card">
+                    <h3>Mi LED Desk Lamp 1S</h3>
+                    <p>Adjustable light for workspaces</p>
+                    <img src="section7-image4.png" alt="Mi LED Desk Lamp 1S">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Mi Computer Monitor Light Bar</h3>
+                    <p>Clear viewing with reduced glare</p>
+                    <img src="section8-image1.png" alt="Mi Computer Monitor Light Bar">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Mi Smart LED Bulb (Warm White)</h3>
+                    <p>Smart lighting for home scenes</p>
+                    <img src="section8-image2.png" alt="Mi Smart LED Bulb (Warm White)">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Mi Bedside Lamp 2</h3>
+                    <p>Soft ambient light for the bedroom</p>
+                    <img src="section9-image1.png" alt="Mi Bedside Lamp 2">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="smart-device" class="product-section">
+            <div class="section-header">
+                <h2>Smart Device</h2>
+                <a href="#" class="section-button">More</a>
+            </div>
+            <div class="product-grid">
+                <article class="product-card">
+                    <h3>Xiaomi Smart Camera C300</h3>
+                    <p>1080p smart home camera</p>
+                    <img src="section10-image1.png" alt="Xiaomi Smart Camera C300">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Mi Camera 2K Magnetic Mount</h3>
+                    <p>Flexible placement security camera</p>
+                    <img src="section10-image2.png" alt="Mi Camera 2K Magnetic Mount">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Mi 360° Home Security Camera 2K Pro</h3>
+                    <p>Wide-angle monitoring with night vision</p>
+                    <img src="section11-image1.jpg" alt="Mi 360° Home Security Camera 2K Pro">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Mi Door and Window Sensor 2</h3>
+                    <p>Smart alerts for home entry points</p>
+                    <img src="section11-image2.png" alt="Mi Door and Window Sensor 2">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card">
+                    <h3>Xiaomi Smart Doorbell 3</h3>
+                    <p>Video doorbell with motion detection</p>
+                    <img src="section11-image3.png" alt="Xiaomi Smart Doorbell 3">
+                    <a href="#" class="product-button">Learn More</a>
+                </article>
+                <article class="product-card product-card--all">
+                    <h3>All Product</h3>
+                    <p>Explore the complete smart home range</p>
+                    <a href="#" class="product-button">Shop all</a>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

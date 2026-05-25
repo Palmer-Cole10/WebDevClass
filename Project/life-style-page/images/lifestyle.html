@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xiaomi Life Style</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f4f4f4;
+            --surface: #ffffff;
+            --text: #111111;
+            --muted: #666666;
+            --border: rgba(17, 17, 17, 0.08);
+            --button: #111111;
+            --button-text: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .site-header {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .site-nav {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 22px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-size: 0.9rem;
+        }
+
+        .brand-mark {
+            width: 30px;
+            height: 30px;
+            background: #ff6700;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .nav-links,
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover,
+        .nav-actions a:hover {
+            color: var(--text);
+        }
+
+        .hero {
+            background: var(--surface);
+        }
+
+        .hero-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 40px 20px 56px;
+            display: grid;
+            grid-template-columns: minmax(300px, 1.1fr) minmax(320px, 0.9fr);
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-copy small {
+            display: inline-block;
+            margin-bottom: 18px;
+            color: #555;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .hero-copy h1 {
+            margin: 0;
+            font-size: clamp(3rem, 5vw, 4.4rem);
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+        }
+
+        .hero-copy p {
+            max-width: 460px;
+            margin: 24px 0 28px;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 999px;
+            background: var(--button);
+            color: var(--button-text);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            background-image: url(section1-image.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 560px;
+            border-radius: 30px;
+        }
+
+        .section {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 70px 0 24px;
+            gap: 16px;
+        }
+
+        .section-header h2 {
+            margin: 0;
+            font-size: 1rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+        }
+
+        .more {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 22px;
+            border-radius: 999px;
+            background: #111;
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 30px 24px 28px;
+            text-align: center;
+            border: 1px solid var(--border);
+            box-shadow: 0 12px 32px rgba(16, 24, 40, 0.06);
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 1rem;
+        }
+
+        .card p {
+            margin: 0 0 22px;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .card img {
+            margin: 0 auto 24px;
+            max-height: 210px;
+            object-fit: contain;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: #111;
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .card.empty {
+            min-height: 260px;
+            display: grid;
+            place-items: center;
+            gap: 16px;
+        }
+
+        .card.empty .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid #111;
+            display: grid;
+            place-items: center;
+            font-size: 1.3rem;
+        }
+
+        .footer {
+            margin-top: 80px;
+            background: #111;
+            color: #fff;
+        }
+
+        .footer-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 60px 20px 28px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 32px;
+        }
+
+        .footer-section h4 {
+            margin: 0 0 18px;
+            font-size: 0.92rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+        }
+
+        .footer-section a {
+            display: block;
+            margin-bottom: 12px;
+            color: #c8c8c8;
+            font-size: 0.94rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 24px 20px;
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            color: #b1b1b1;
+            font-size: 0.9rem;
+        }
+
+        .newsletter {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .newsletter input {
+            padding: 10px 14px;
+            min-width: 220px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            outline: none;
+        }
+
+        @media (max-width: 980px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-nav">
+            <div class="brand">
+                <span class="brand-mark">mi</span>
+                <span>Life Style</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#">Phone</a>
+                <a href="#">Smart Home</a>
+                <a href="#">Life Style</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#">Discover</a>
+                <a href="#">Support</a>
+                <a href="#">Search</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <small>Xiaomi</small>
+                    <h1>Smart Band 7 Pro</h1>
+                    <p>Step up your style</p>
+                    <a class="button" href="#">Learn more</a>
+                </div>
+                <div class="hero-image">
+                    <img src="section1-image.png" alt="Smart Band 7 Pro">
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Wearable</h2>
+                <a class="more" href="#">More</a>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>Xiaomi Buds 3T Pro</h3>
+                    <p>Immersive bass, magical sound</p>
+                    <img src="section2-image1.png" alt="Xiaomi Buds 3T Pro">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+                <div class="card">
+                    <h3>Xiaomi Buds 3</h3>
+                    <p>Feel the beat, block the noise</p>
+                    <img src="section2-image2.png" alt="Xiaomi Buds 3">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+                <div class="card">
+                    <h3>Xiaomi Watch S1 Active</h3>
+                    <p>Style up your fitness</p>
+                    <img src="section2-image3.jpg" alt="Xiaomi Watch S1 Active">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+                <div class="card">
+                    <h3>Mi Watch</h3>
+                    <p>Sleek upgrades for a sportier style worth embracing</p>
+                    <img src="section3-image1.png" alt="Mi Watch">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+                <div class="card">
+                    <h3>Redmi Watch 2 Lite</h3>
+                    <p>Get fit, start easy</p>
+                    <img src="section3-image2.png" alt="Redmi Watch 2 Lite">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+                <div class="card">
+                    <h3>Redmi Buds 3 Pro</h3>
+                    <p>The sound you want</p>
+                    <img src="section3-image3.png" alt="Redmi Buds 3 Pro">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Vehicle</h2>
+                <a class="more" href="#">More</a>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>Xiaomi Electric Scooter 4 Pro</h3>
+                    <p>Ride with power, go in comfort</p>
+                    <img src="section4-image1.png" alt="Xiaomi Electric Scooter 4 Pro">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+                <div class="card">
+                    <h3>Xiaomi Electric Scooter 3 Lite</h3>
+                    <p>Ride with style</p>
+                    <img src="section4-image2.png" alt="Xiaomi Electric Scooter 3 Lite">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+                <div class="card">
+                    <h3>Xiaomi Electric Scooter Storage Bag</h3>
+                    <p>Easy storage for all your items</p>
+                    <img src="section4-image3.png" alt="Xiaomi Electric Scooter Storage Bag">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Office</h2>
+                <a class="more" href="#">More</a>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>Mi Router AX9000</h3>
+                    <p>Built for gamers, 10 Gb/s Wi-Fi 6</p>
+                    <img src="section5-image1.png" alt="Mi Router AX9000">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+                <div class="card">
+                    <h3>Mi Router 4A Gigabit Edition</h3>
+                    <p>Dual core full gigabit AC1200 router</p>
+                    <img src="section5-image2.png" alt="Mi Router 4A Gigabit Edition">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Personal Care</h2>
+                <a class="more" href="#">More</a>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>Xiaomi Water Ionic Hair Dryer H500</h3>
+                    <p>Deeply moisturizes the hair for softer, shinier, and hydrated style</p>
+                    <img src="section6-image1.png" alt="Xiaomi Water Ionic Hair Dryer H500">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+                <div class="card">
+                    <h3>Mi 5-Blade Electric Shaver</h3>
+                    <p>A perfect shave to begin a superior day</p>
+                    <img src="section6-image2.png" alt="Mi 5-Blade Electric Shaver">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Sport</h2>
+                <a class="more" href="#">More</a>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>Xiaomi Massage Gun</h3>
+                    <p>Intelligent power, deep relaxation</p>
+                    <img src="section7-image1.png" alt="Xiaomi Massage Gun">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+                <div class="card">
+                    <h3>Mi Smart Scale 2</h3>
+                    <p>Accurate enough to detect your weight in a few seconds</p>
+                    <img src="section7-image2.png" alt="Mi Smart Scale 2">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Accessories</h2>
+                <a class="more" href="#">More</a>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>Xiaomi Electric Precision Screwdriver</h3>
+                    <p>Two-speed torque control, precise driving</p>
+                    <img src="section8-image1.png" alt="Xiaomi Electric Precision Screwdriver">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+                <div class="card">
+                    <h3>Mi 65W Fast Charger with GaN Tech</h3>
+                    <p>High power fast charging up to 65W</p>
+                    <img src="section8-image2.png" alt="Mi 65W Fast Charger with GaN Tech">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+                <div class="card">
+                    <h3>Mi 16-in-1 Ratchet Screwdriver</h3>
+                    <p>Efficient, labor-saving and portable</p>
+                    <img src="section8-image3.png" alt="Mi 16-in-1 Ratchet Screwdriver">
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+                <div class="card empty">
+                    <div class="icon">→</div>
+                    <h3>All Product</h3>
+                    <a class="btn" href="#">Learn more</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-section">
+                <h4>Shop and Learn</h4>
+                <a href="#">Xiaomi 12T Pro</a>
+                <a href="#">Xiaomi 12</a>
+                <a href="#">Redmi Note 12 Pro 5G</a>
+                <a href="#">Redmi K60</a>
+                <a href="#">Redmi Note 11 Pro</a>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <a href="#">Contact us</a>
+                <a href="#">User guide</a>
+                <a href="#">Warranty</a>
+                <a href="#">Service network</a>
+                <a href="#">Submit support ticket</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact us</h4>
+                <a href="#">Facebook</a>
+                <a href="#">YouTube</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+                <a href="#">Xiaomi Stories</a>
+            </div>
+            <div class="footer-section">
+                <h4>About us</h4>
+                <a href="#">Xiaomi</a>
+                <a href="#">Leadership</a>
+                <a href="#">Press</a>
+                <a href="#">Investor relations</a>
+                <a href="#">Sustainability</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>Copyright © 2024 Xiaomi. All Rights Reserved.</span>
+            <div class="newsletter">
+                <span>Let's stay in touch</span>
+                <input type="email" placeholder="Enter email address">
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
